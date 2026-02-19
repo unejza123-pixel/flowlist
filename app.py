@@ -3,6 +3,7 @@ from flask import Flask, render_template,redirect,request
 from flask_scss import Scss
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime,UTC
+import os
 
 #my app
 app=Flask(__name__)
@@ -73,4 +74,4 @@ def edit(id:int):
 
 #runner and debugger
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
